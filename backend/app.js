@@ -20,11 +20,12 @@ const port = 5000;
 app.use(express.json());
 app.use(cors());
 
-app.use("/class", ClassRouter);
-app.use("/result", Result);
-app.use("/addmat", Mat);
+app.use(ClassRouter);
+app.use(Result);
+app.use(Mat);
 app.use("*", (req, res) => res.status(404).json({ error: "not found" }));
 
 app.listen(port, () => {
   console.log(`listening on the port ${port}`);
 });
+module.exports = app;

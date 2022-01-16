@@ -10,7 +10,7 @@ const router = express.Router();
 //   }
 // );
 
-router.route("/").post((req, res) => {
+router.route("/addmat").post((req, res) => {
   var newMat = new Mat();
   newMat.type = req.body.type;
   newMat.content = req.body.content;

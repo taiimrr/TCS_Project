@@ -1,18 +1,12 @@
 var express = require("express");
-var Student = require("../models/student.model");
+var Student = require("../models/students");
 
 const router = express.Router();
-Result.create(
-  { name: "Muhammad Imran", totalMarks: 1100, marksObtained: 1100 },
-  (err) => {
-    console.log(err);
-  }
-);
-
-router.route("/").get((req, res) => {
+//Student.create({ name: "taimoor" });
+router.route("/:id/result").get((req, res) => {
   var studentId = req.params.id;
-  Student.findByID(studentId)
-    .then((data) => res.json(data.Student_Result))
+  Student.findById(studentId)
+    .then((data) => res.json(data))
     .catch((err) => res.status(400).json("Error: " + err));
 });
 
